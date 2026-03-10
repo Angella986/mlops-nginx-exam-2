@@ -8,3 +8,14 @@ test-api:
      -d '{"sentence": "Oh yeah, that was soooo cool!"}' \
 	 --user admin:admin \
      --cacert ./deployments/nginx/certs/nginx.crt;
+
+
+start-project:
+    docker compose up -d --build --scale api_v1=3
+
+stop-project:
+    docker compose down
+
+test:
+    bash tests/run_tests.sh
+
